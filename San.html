@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Profile</title>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="content">
+                <div class="profile">
+                    <img src="https://i.ibb.co/5xn9QDs/images-3-removebg-preview-picsay.png" alt="Your Profile Image">
+                    <h1 class="typing-animation">ADE IKHSAN</h1>
+                    <p class="slide-animation">Selamat datang di profile saya!</p>
+                </div>
+                <audio src="dj.mp3" controls="autoplay"type="audio/mpeg"></audio>
+                <nav>
+                    <a href="https://mr-jhonz.github.io/BotHFT/BOTZ-HFT.html">BotAI</a>
+                    <a href="https://anonymoustasikmalaya26.on.drv.tw/Homepage.html">install linux</a>
+                    <a href="https://wa.me/6283151697416">Contact</a>
+                    <a href="https://muaramedia.co.id/tutordeface">deface</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+audio {
+  background:white;
+  height:50px;
+  width:360px;
+}
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.background {
+    background: linear-gradient(to right, black, red);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.profile {
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan border */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.profile img {
+    width: 150px; /* Sesuaikan ukuran foto profil */
+    border-radius: 50%; /* Agar foto profil menjadi lingkaran */
+    margin-bottom: 20px;
+}
+
+/* Animasi Mengetik */
+.typing-animation {
+    overflow: hidden; 
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: .20em;
+    animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+}
+
+/* Animasi Slide */
+.slide-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: darkcyan;
+}
+
+</style>
