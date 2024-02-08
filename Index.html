@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>website ikhsan</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1></h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="home" class="section">
+    <h3>HOME</h3>
+    <img src="dan4.jpg"height="145px"width="145px"border-radius="50%">
+    <h1 class="typing">ade ikhsan nur rahman</h1>
+    <!-- Content for Home Section -->
+  </div>
+
+  <div id="about" class="section">
+    <h2>About</h2>
+    <p>untuk mengetahui lebih lanjut klik  <a href="https://mr-jhonz.github.io/P/San.html">disini</a></p>
+    <!-- Content for About Section -->
+  </div>
+
+  <div id="gallery" class="section">
+    <h2>my gallery</h2>
+    <!-- Content for Gallery Section -->
+    <div class="gallery">
+      <img src="dan.png" alt="Image 1">
+      <img src="dan2.png" alt="Image 2">
+      <img src="dan3.jpg" alt="Image 3">
+      <!-- Add more images as needed -->
+    </div>
+  </div>
+
+  <div id="contact" class="section"><b>Contact</b></h2>
+  <p>WatsApp: +6283151697416<br>Email: aristriadi123@gmail.com</p>
+    <!-- Content for Contact Section -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+img {
+  border-radius: 50%;
+}
+</style>
+<p><b>© created by ikhsan</b></p>
