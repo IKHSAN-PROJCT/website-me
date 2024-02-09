@@ -7,20 +7,6 @@ if (!("Notification" in window)) {
   alert("Selamat datang di website saya");
 }
 
-// Minta izin untuk munculkan notifikasi
-else if (Notification.permission !== "denied") {
-  Notification.requestPermission().then(function(permission) {
-    // Jika izin diberikan
-    if (permission === "granted") {
-      // Munculkan notifikasi
-      var notification = new Notification("Judul Notifikasi", {
-        body: "Isi Notifikasi",
-        icon: "dan.png" // Ganti dengan URL atau path ke ikon notifikasi
-      });
-    }
-  });
-}
-
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +23,7 @@ else if (Notification.permission !== "denied") {
         <li><a href="#about">About</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="https://youtube.com/@Mr_jhon26?si=AIL4CXMasPcvrRpM">Youtube</a></li>
       </ul>
     </nav>
   </header>
@@ -48,13 +35,13 @@ else if (Notification.permission !== "denied") {
   </div>
 
   <div id="about" class="section">
-    <h2>Tentang saya</h2>
-    <p>untuk mengetahui lebih lanjut klik  <a href="https://mr-jhonz.github.io/P/San.html">disini</a></p>
+    <h2>About me</h2>
+    <p>Hello, my name is Ade Ikhsan Nur Rahman here I created a simple website with the aim of making it easier for you to understand the tutorials that I provide click <a href="https://mr-jhonz.github.io/website-me/San.html">here</a></p>
     <!-- Content for About Section -->
   </div>
 
   <div id="gallery" class="section">
-    <h2>Galery saya</h2>
+    <h2>My galeri</h2>
     <!-- Content for Gallery Section -->
     <div class="gallery">
       <img src="san.jpg" alt="Image 1">
@@ -65,7 +52,7 @@ else if (Notification.permission !== "denied") {
     </div>
   </div>
 
-  <div id="contact" class="section"><h2><b>Kontak saya</b></h2>
+  <div id="contact" class="section"><h2><b>Contact me</b></h2>
   <p>WatsApp: +6283151697416<br>Email: aristriadi123@gmail.com<br>Instagram: sanzacil_026<br>Tiktok: sanzacil_026</p>
     <!-- Content for Contact Section -->
   </div>
