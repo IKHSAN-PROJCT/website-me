@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+// Periksa apakah browser mendukung notifikasi
+if (!("Notification" in window)) {
+  alert("Selamat datang di website saya");
+}
+
+// Minta izin untuk munculkan notifikasi
+else if (Notification.permission !== "denied") {
+  Notification.requestPermission().then(function(permission) {
+    // Jika izin diberikan
+    if (permission === "granted") {
+      // Munculkan notifikasi
+      var notification = new Notification("Judul Notifikasi", {
+        body: "Isi Notifikasi",
+        icon: "dan.png" // Ganti dengan URL atau path ke ikon notifikasi
+      });
+    }
+  });
+}
+
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>website ikhsan</title>
@@ -8,6 +29,7 @@
 </head>
 <body background="sad.gif"height="2000px">
   <header>
+<audio src="musik.mp3"autoplay="true"id="lagu"loop="true"></audio>
     <h1></h1>
     <nav>
       <ul>
@@ -20,8 +42,8 @@
   </header>
 
   <div id="home" class="section">
-    <img src="dan4.jpg"height="145px"width="145px"border-radius="50%">
-    <h3>Ade ikhsan nur rahman</h3>
+    <img src="ikhsan.jpg"height="345px"width="245px"border-radius="50%">
+    <h2>Ade ikhsan nur rahman</h2>
     <!-- Content for Home Section -->
   </div>
 
@@ -36,8 +58,9 @@
     <!-- Content for Gallery Section -->
     <div class="gallery">
       <img src="san.jpg" alt="Image 1">
-      <img src="dan2.png" alt="Image 2">
+      <img src="Fitriade.jpg" alt="Image 2">
       <img src="dan3.jpg" alt="Image 3">
+      <img src="kawan.jpg"alt="image 4">
       <!-- Add more images as needed -->
     </div>
   </div>
@@ -60,7 +83,7 @@ body {
 }
 
 header {
-  background-color:#A0522D;
+  background-color:;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -103,7 +126,7 @@ nav ul li a {
   transform: scale(1.1);
 }
 img {
-  border-radius: 50%;
+  border-radius:10%;
 }
 h3 {
   color: white;
