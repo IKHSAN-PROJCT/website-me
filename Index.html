@@ -1,122 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-// Periksa apakah browser mendukung notifikasi
-if (!("Notification" in window)) {
-  alert("Selamat datang di website saya");
-}
-
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>website ikhsan</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sanzacil_026.com</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body background="sad.gif"height="2000px">
-  <header>
-<audio src="musik.mp3"autoplay="true"id="lagu"loop="true"></audio>
-    <h1></h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="https://youtube.com/@Mr_jhon26?si=AIL4CXMasPcvrRpM">Youtube</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div id="home" class="section">
-    <img src="ikhsan.jpg"height="345px"width="245px"border-radius="50%">
-    <h2>Ade ikhsan nur rahman</h2>
-    <!-- Content for Home Section -->
-  </div>
-
-  <div id="about" class="section">
-    <h2>About me</h2>
-    <p>Hello, my name is Ade Ikhsan Nur Rahman here I created a simple website with the aim of making it easier for you to understand the tutorials that I provide click <a href="https://mr-jhonz.github.io/website-me/San.html">here</a></p>
-    <!-- Content for About Section -->
-  </div>
-
-  <div id="gallery" class="section">
-    <h2>My galeri</h2>
-    <!-- Content for Gallery Section -->
-    <div class="gallery">
-      <img src="san.jpg" alt="Image 1">
-      <img src="Fitriade.jpg" alt="Image 2">
-      <img src="dan3.jpg" alt="Image 3">
-      <img src="kawan.jpg"alt="image 4">
-      <!-- Add more images as needed -->
-    </div>
-  </div>
-
-  <div id="contact" class="section"><h2><b>Contact me</b></h2>
-  <p>WatsApp: +6283151697416<br>Email: aristriadi123@gmail.com<br>Instagram: sanzacil_026<br>Tiktok: sanzacil_026</p>
-    <!-- Content for Contact Section -->
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  height :100%;
-  
-}
-
-header {
-  background-color:;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.gallery img:hover {
-  transform: scale(1.1);
-}
-img {
-  border-radius:10%;
-}
-h3 {
-  color: white;
+<body>
+  <style>
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 h2 {
   color: white;
@@ -124,12 +20,134 @@ h2 {
 p {
   color: white;
 }
-h1 {
-  color: white;
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
 }
-h {
-  color :white;
+
+header {
+  background-color: black;
+    background-size: cover;
+    padding: 20px;
 }
-</style>
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: gray;
+}
+
+.section {
+    padding: 50px;
+    text-align: center;
+}
+
+.home-section {
+    background-image: url('https://i.ibb.co/vqTzrqz/IMG-20240228-WA0031.jpg'); /* Ganti dengan URL gambar latar belakang home Anda */
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    text-align: center;
+}
+
+.home-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.home-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #ff9900;
+}
+
+  </style>
+    <header>
+        <nav>
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#sosial-media">Sosial Media</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="section home-section">
+        <div class="home-content">
+            <h1>Selamat datang</h1>
+            <a href="https://mr-jhonz.github.io/website-me/San.html" class="cta-btn">Read more..</a>
+        </div>
+    </section>
+    
+    <section id="kontak" class="section">
+        <h2>Kontak</h2>
+        <p>Hubungi saya</p>
+        <a href="mailto:aristriadi123@gmail.com" class="contact-btn">Klik disini</a>
+    </section>
+    
+    <section id="galeri" class="section">
+        <h2>Galeri</h2>
+        <div class="gallery">
+            <img src="dan.png" alt="Image 1">
+            <img src="dan2.png" alt="Image 2">
+            <img src="dan3.jpg" alt="Image 3">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+    
+    <section id="sosial-media" class="section">
+        <h2>Sosial Media</h2>
+        <div class="social-media">
+            <a href="https://www.youtube.com/@sanzacil_026" class="social-link">Youtube</a>
+            <a href="https://instagram.com/@sanzacil_026" class="social-link">Instagram</a>
+            <a href="https://tiktok.com/@sanzacil_026" class="social-link">Tiktok</a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </section>
+</body>
 </html>
-<p><b>© created by ikhsan</b></p>
