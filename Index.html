@@ -3,151 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sanzacil_026.com</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Website ikhsan</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <script>
+// Menampilkan peringatan popup
+alert("Selamat datang di website sanzProject");
+// Menampilkan peringatan konfirmasi
+var result = confirm("Apakah Anda yakin ingin melanjutkan?");
+if (result) {
+  alert("Anda memilih untuk melanjutkan.");
+} else {
+  alert("Anda memilih untuk membatalkan.");
+}
+
+// Menampilkan dialog prompt
+var name = prompt("Masukkan nama Anda:", "");
+if (name != null && name != "") {
+  alert("Halo, " + name + "!");
+} else {
+  alert("Anda tidak memasukkan nama.");
+}
+
+  </script>
   <style>
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  p {
+  background-color: rgba(0, 0, 0, 0);
+  transition: transform 0.3s ease-in-out;
 }
 h2 {
-  color: white;
+  color: red;
 }
-p {
-  color: white;
+h1 {
+  overflow: hidden; /* Membuat teks yang melebihi lebar elemen tersembunyi */
+  border-right: .15em solid orange; /* Garis kanan imitasi cursor */
+  white-space: nowrap; /* Mencegah teks mematahkan baris */
+  margin: 0 auto; /* Pusatkan teks secara horizontal */
+  animation: typing 3s steps(40, end), blink-caret .75s step-end infinite; /* Efek ngetik dan cursor */
 }
+/* Keyframe untuk efek ngetik */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+/* Keyframe untuk cursor blink */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
+.slide-in {
+  transform: translateY(0);
+}
+
+.slide-out {
+  transform: translateY(-100%);
+}
+
+.container {
+  margin-top: 100px;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: black;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-  background-color: black;
-    background-size: cover;
-    padding: 20px;
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-right: 20px;
-}
-
-.nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: gray;
-}
-
-.section {
-    padding: 50px;
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
-.home-section {
-    background-image: url('https://i.ibb.co/vqTzrqz/IMG-20240228-WA0031.jpg'); /* Ganti dengan URL gambar latar belakang home Anda */
+.navbar ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    color: red;
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url('https://i.ibb.co/VYg4vkj/IMG-20240228-WA0030.jpg');
     background-size: cover;
-    color: #fff;
+    height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
 }
 
-.home-content {
+.about, .tutorial, .contact , .galery {
+    padding: 100px 0;
     text-align: center;
 }
 
-.home-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.home-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.cta-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ffcc00;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #ff9900;
+footer {
+    background-color: #333;
+    color: gray;
+    padding: 20px 0;
+    text-align: center;
 }
 
   </style>
-    <header>
-        <nav>
-            <div class="logo"></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-                <li><a href="#galeri">Galeri</a></li>
-                <li><a href="#sosial-media">Sosial Media</a></li>
+    <header id="home">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#tutorial">Tutorial</a></li>
+                <li><a href="#contact">Kontak</a></li><li><a href="https://mr-jhonz.github.io/website-me/Galery.html">Galery</a></li>
             </ul>
         </nav>
+        <div class="hero">
+            <h1>Selamat Datang</h1>
+            <p></p>
+        </div>
     </header>
-    
-    <section id="home" class="section home-section">
-        <div class="home-content">
-            <h1>Selamat datang</h1>
-            <a href="https://mr-jhonz.github.io/website-me/San.html" class="cta-btn">Read more..</a>
-        </div>
+
+    <section id="about" class="about">
+        <h2>Tentang saya</h2>
+        <p>Perkenal kan nama saya ikhsan dan nama panjang saya ade ikhsan nur rahman kali ini saya membuat website untuk memberikan tutorial tutorial agar mempermudah kalian silahkan gulir kebawah...</p>
     </section>
-    
-    <section id="kontak" class="section">
+
+    <section id="tutorial" class="tutorial">
+        <h2>Tutorial dan Info Tools</h2>
+        <p>Oke di bagian ini saya akan memberikan tutorial deface langsung aja <a href="https://muaramedia.co.id/berita/detail/tutordeface">Klik disini</a><br>oke lanjut untuk menggunakan tools saya silahkan <a href="https://github.com/MR-JHONz/HFT-TOOLS">klik disini</a><br>dan untuk menjalan kan bot saya <a href="https://mr-jhonz.github.io/BotHFT/BOTZ-HFT.html">klik disini</a></p>
+    </section>
+
+    <section id="contact" class="contact">
         <h2>Kontak</h2>
-        <p>Hubungi saya</p>
-        <a href="mailto:aristriadi123@gmail.com" class="contact-btn">Klik disini</a>
+        <p>silahkan hubungi kepada nomor watsapp <a href="https://wa.me/683151697416">disini</a><br>silahkan hubungi saya di email <a href="mailto:aristriadi123@gmail.com">disini</a><br>subscribe channel saya <a href="https://www.youtube.com/@sanzacil_026">disini</a><br>follow instagram saya <a href="https://instagram.com/@sanzacil_026">klik disini</a><br>follow tiktok saya <a href="https://tiktok.com/@sanzacil_026">klik disini</a></p>
     </section>
-    
-    <section id="galeri" class="section">
-        <h2>Galeri</h2>
-        <div class="gallery">
-            <img src="dan.png" alt="Image 1">
-            <img src="dan2.png" alt="Image 2">
-            <img src="dan3.jpg" alt="Image 3">
-            <!-- Add more images as needed -->
-        </div>
-    </section>
-    
-    <section id="sosial-media" class="section">
-        <h2>Sosial Media</h2>
-        <div class="social-media">
-            <a href="https://www.youtube.com/@sanzacil_026" class="social-link">Youtube</a>
-            <a href="https://instagram.com/@sanzacil_026" class="social-link">Instagram</a>
-            <a href="https://tiktok.com/@sanzacil_026" class="social-link">Tiktok</a>
-            <!-- Add more social media links as needed -->
-        </div>
-    </section>
+
+    <footer>
+        <p>Hak Cipta &copy; 2024 Website Ikhsan</p>
+    </footer>
 </body>
 </html>
