@@ -8,6 +8,14 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        text-align: center;
+    }
+    h1 {
+        margin-top: 50px;
+        font-size: 24px;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
     }
     .slideshow {
         position: relative;
@@ -16,7 +24,7 @@
         overflow: hidden;
     }
     .slide {
-        display: none;
+        display: none; /* Sembunyikan semua gambar awalnya */
         width: 100%;
     }
     img {
@@ -30,9 +38,55 @@
         pointer-events: none;
         z-index: 1;
     }
+
+    /* Tombol panah */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* Tombol panah saat hover */
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Animasi fade in */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 </style>
 </head>
+<style>
+  h1 {
+    color: white;
+  }
+  body {
+    background-color: black;
+  }
+</style>
 <body>
+<h1>Silahkan lihat-lihat dulu</h1>
 <div class="slideshow">
     <div class="slide">
         <img src="gambar1.png" alt="Gambar 1">
@@ -46,7 +100,7 @@
         <img src="gambar3.png" alt="Gambar 3">
         <canvas class="snow" id="snowCanvas3"></canvas>
     </div>
-        <div class="slide">
+    <div class="slide">
         <img src="gambar4.png" alt="Gambar 4">
         <canvas class="snow" id="snowCanvas4"></canvas>
     </div>
@@ -62,86 +116,30 @@
         <img src="gambar7.png" alt="Gambar 7">
         <canvas class="snow" id="snowCanvas7"></canvas>
     </div>
+    <!-- Tombol panah -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
 <script>
-    var slideIndex = 0;
-    showSlides();
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-    function showSlides() {
+    // Fungsi untuk menampilkan slide tertentu
+    function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";  
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
         slides[slideIndex-1].style.display = "block";  
-
-        // Mulai animasi salju untuk slide saat ini
-        animateSnow("snowCanvas" + slideIndex);
-
-        setTimeout(showSlides, 5000); // Change image every 5 seconds
     }
 
-    function animateSnow(canvasId) {
-        var canvas = document.getElementById(canvasId);
-        var ctx = canvas.getContext("2d");
-
-        // Ukuran canvas
-        var width = canvas.width = window.innerWidth;
-        var height = canvas.height = window.innerHeight;
-
-        // Array untuk menyimpan posisi salju
-        var snowflakes = [];
-
-        // Fungsi untuk membuat salju
-        function createSnowflakes() {
-            for (var i = 0; i < 100; i++) {
-                snowflakes.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    radius: Math.random() * 5 + 2, // Ukuran salju
-                    speed: Math.random() + 0.5 // Kecepatan jatuh salju
-                });
-            }
-        }
-
-        // Fungsi untuk menggambar salju
-        function drawSnowflakes() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "white";
-            ctx.beginPath();
-            for (var i = 0; i < snowflakes.length; i++) {
-                var flake = snowflakes[i];
-                ctx.moveTo(flake.x, flake.y);
-                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2, true);
-            }
-            ctx.fill();
-            moveSnowflakes();
-        }
-
-        // Fungsi untuk menggerakkan salju
-        function moveSnowflakes() {
-            for (var i = 0; i < snowflakes.length; i++) {
-                var flake = snowflakes[i];
-                flake.y += flake.speed;
-                if (flake.y > height) {
-                    snowflakes[i] = { x: Math.random() * width, y: 0, radius: flake.radius, speed: flake.speed };
-                }
-            }
-        }
-
-        // Panggil fungsi untuk membuat salju
-        createSnowflakes();
-
-        // Loop animasi
-        function loop() {
-            drawSnowflakes();
-            requestAnimationFrame(loop);
-        }
-
-        loop();
+    // Fungsi untuk menggeser slide
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
     }
 </script>
-
 </body>
 </html>
