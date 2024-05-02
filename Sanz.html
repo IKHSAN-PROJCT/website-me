@@ -12,10 +12,13 @@
   }
   .mySlides {
     display: none;
+    position: relative;
   }
   .mySlides img {
     width: 100%;
     height: auto;
+    border: 5px solid #f1f1f1; /* Tambahkan border untuk bayangan */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
   }
   .prev, .next {
     cursor: pointer;
@@ -123,7 +126,7 @@
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 5000); // Ganti gambar setiap 5 detik
+    setTimeout(showSlides, 10000); // Ganti gambar setiap 10 detik
   }
 
   var snowflakes = document.querySelectorAll('.snowflake');
