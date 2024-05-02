@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cek Status Website</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#statusMessage {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-style: italic;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.statusAktif {
+  color: green;
+}
+
+.statusTidakAktif {
+  color: red;
+}
+
+.notification {
+  font-weight: bold;
+  font-style: italic;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <img src="https://i.ibb.co/C5bVVYH/20240502-143327.png" alt="Logo" style="border-radius: 50%;">
+  </div>
+  <h1>Cek Status Website</h1>
+  <form id="websiteForm">
+    <label for="websiteUrl">Masukkan URL Website:</label>
+    <input type="text" id="websiteUrl" name="websiteUrl" placeholder="https://contoh.com" required>
+    <button type="submit">Periksa Status</button>
+  </form>
+  <div id="statusMessage"></div>
+</div>
+
+<div class="canvas-container">
+  <canvas class="canvas" id="particles"></canvas>
+</div>
+
+<audio id="audio" style="display:none"></audio>
+
+<script>
+document.getElementById("websiteForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var websiteUrl = document.getElementById("websiteUrl").value;
+  checkWebsiteStatus(websiteUrl);
+});
+
+function checkWebsiteStatus(url) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        var message = document.createElement('div');
+        message.className = 'notification statusAktif';
+        var text = document.createTextNode('Website aktif Dengan Status code: ' + this.status + '');
+        message.appendChild(text);
+        document.getElementById("statusMessage").innerHTML = '';
+        document.getElementById("statusMessage").appendChild(message);
+        playAudio('Website aktif dan berjalan');
+      } else {
+        var message = document.createElement('div');
+        message.className = 'notification statusTidakAktif';
+        var text = document.createTextNode('Website tidak aktif. Kode status: ' + this.status + '');
+        message.appendChild(text);
+        document.getElementById("statusMessage").innerHTML = '';
+        document.getElementById("statusMessage").appendChild(message);
+        playAudio('Website tidak aktif');
+      }
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function playAudio(text) {
+  var audio = new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=' + encodeURIComponent(text) + '&tl=id');
+  audio.play();
+}
+
+// Particle animation
+var canvas = document.getElementById('particles');
+var ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var particlesArray;
+
+// Create particles
+function Particle() {
+  this.x = Math.random() * canvas.width;
+  this.y = Math.random() * canvas.height;
+  this.directionX = Math.random() * 2 - 1;
+  this.directionY = Math.random() * 2 - 1;
+  this.speed = Math.random() * 2;
+  this.color = '#fff';
+  this.size = Math.random() * 2 + 1;
+}
+
+// Add draw method to Particle prototype
+Particle.prototype.draw = function() {
+  ctx.beginPath();
+  ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+  ctx.fillStyle = this.color;
+  ctx.fill();
+};
+
+// Update particle position
+Particle.prototype.update = function() {
+  this.x += this.directionX * this.speed;
+  this.y += this.directionY * this.speed;
+  if (this.x > canvas.width || this.x < 0) {
+    this.directionX-this.directionX;
+  }
+  if (this.y > canvas.height || this.y < 0) {
+    this.directionY = -this.directionY;
+  }
+};
+
+// Populate particlesArray
+function init() {
+  particlesArray = [];
+  var numberOfParticles = canvas.width * 0.02;
+  for (var i = 0; i < numberOfParticles; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (var i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+}
+
+init();
+animate();
+
+// Responsiveness
+window.addEventListener('resize', function() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+});
+</script>
+</body>
+</html>
