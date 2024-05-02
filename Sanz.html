@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slideshow Produk dengan Animasi Salju</title>
+<style>
+  .slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+  }
+  .mySlides {
+    display: none;
+  }
+  .mySlides img {
+    width: 100%;
+    height: auto;
+  }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  /* Animasi Salju */
+  .snow {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  .snow .snowflake {
+    position: absolute;
+    top: -50px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: snowfall linear infinite;
+    pointer-events: none;
+  }
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <img src="gambar1.png" alt="Gambar 1">
+  </div>
+  <div class="mySlides fade">
+    <img src="gambar2.png" alt="Gambar 2">
+  </div>
+  <div class="mySlides fade">
+    <img src="gambar3.png" alt="Gambar 3">
+  </div>
+  <div class="mySlides fade">
+    <img src="gambar4.png" alt="Gambar 4">
+  </div>
+  <div class="mySlides fade">
+    <img src="gambar5.png" alt="Gambar 5">
+  </div>
+  <div class="mySlides fade">
+    <img src="gambar6.png" alt="Gambar 6">
+  </div>
+  <div class="mySlides fade">
+    <img src="gambar7.png" alt="Gambar 7">
+  </div>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Animasi Salju -->
+<div class="snow">
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+</div>
+
+<script>
+  var slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 5000); // Ganti gambar setiap 5 detik
+  }
+
+  var snowflakes = document.querySelectorAll('.snowflake');
+  snowflakes.forEach(function (snowflake) {
+    var randomSize = Math.random() * 3;
+    snowflake.style.width = 5 + randomSize + 'px';
+    snowflake.style.height = 5 + randomSize + 'px';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = 5 + Math.random() * 10 + 's';
+  });
+</script>
+
+</body>
+</html>
