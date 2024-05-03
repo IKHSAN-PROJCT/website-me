@@ -1,0 +1,152 @@
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(6, 100%);
+  gap: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.gallery-item {
+  width: 100%;
+  height: auto;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Style for gallery buttons */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Positioning for previous button */
+#prevBtn {
+  left: 0;
+}
+
+/* Positioning for next button */
+#nextBtn {
+  right: 0;
+}
+
+/* Style for slider container */
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Style for slider */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Style for individual slide */
+.slide {
+  min-width: 100%;
+  flex: 1;
+}
+
+/* Style for images inside slides */
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style for arrow buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+/* Positioning for previous button */
+.prev {
+  left: 0;
+}
+
+/* Positioning for next button */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Style/* Style for arrow button on hover */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Style for video container */
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Style for individual video */
+.video-container iframe {
+  width: 100%; /* Full width for mobile */
+  max-width: 320px; /* Maximum width for larger screens */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for smaller screens (mobile) */
+@media screen and (max-width: 600px) {
+  .video-container iframe {
+    max-width: none; /* Remove maximum width restriction */
+  }
+}
+
+/* Wave effect */
+.wave {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #f7df1e;
+  border-radius: 50%;
+  animation: waveAnimation 0.5s infinite;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+/* Product items */
+.product-item {
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
+}

@@ -1,187 +1,64 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANZPROJECT</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        header {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            text-decoration: none;
-        }
-        nav {
-            background-color: #fff;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-        }
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 20px;
-            transition: all 0.3s ease;
-        }
-        nav a:hover {
-            color: #ffcc00;
-        }
-        section {
-            padding: 50px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-        }
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .contact-links button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            margin: 0 10px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .contact-links button:hover {
-            background-color: #ffcc00;
-        }
-        #product {
-            text-align: center;
-        }
-        #product img {
-            max-width: 100%;
-            height: auto;
-            display: none;
-        }
-        #product img.active {
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Website</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Include external CSS file -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="gambar3.png" class="logo"></a>
-            <nav>
-                <a href="#home">Beranda</a>
-                <a href="#contact">Kontak</a>
-                <a href="#product">Produk</a>
-            </nav>
-        </div>
-    </header>
-    <section id="home">
-        <h2>Selamat datang</h2>
-        <p>Hallo semua perkenalkan nama saya <strong>Ade ikhsan nurrahman</strong> selamat datang di website saya.</p>
-        <p><u>Alamat saya Jl. RE Marthadinata Gg kenanga IV</u></p>
-        <img src="https://i.ibb.co/HHcg3Xv/IMG-20230822-WA0579.jpg" alt="Perusahaan Kami" style="width: 100%; max-width: 500px; margin-top: 20px;border-radius:30%;">
-    </section>
-    <section id="contact">
-      <div>
-        <center>
-        <h2>Kontak saya</h2>
-        </center>
-<!-- Instagram -->
-<a href="https://www.instagram.com/@sanzacil_026" target="_blank">
-  <img src="https://i.ibb.co/Fg7nfPm/Instagram-icon.png" alt="Instagram" width="50" height="50">
-</a>
 
-<!-- LinkedIn -->
-<a href="https://www.linkedin.com/in/sanzacil026?originalSubdomain=id" target="_blank">
-  <img src="https://i.ibb.co/rwpFcqm/Linked-In-logo-initials.png" alt="LinkedIn" width="50" height="50">
-</a>
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#product">Product</a></li>
+  </ul>
+</nav>
 
-<!-- YouTube -->
-<a href="https://www.youtube.com/@sanzacil_026" target="_blank">
-  <img src="Youtube_logo.png" alt="YouTube" width="50" height="50">
-</a>
-<!-- WhatsApp -->
-<a href="https://wa.me/6283151697416" target="_blank">
-  <img src="https://i.ibb.co/sPMz7hm/download-1.jpg" alt="WhatsApp" width="50" height="50">
-</a>
-      </div>
-    </section>
-    <section id="product">
-        <h2>Produk Kami</h2>
-        <div class="slideshow-container">
-            <img class="mySlides active" src="gambar1.png">
-            <img class="mySlides" src="gambar2.png">
-            <img class="mySlides" src="gambar3.png">
-            <img class="mySlides" src="gambar4.png">
-            <img class="mySlides" src="gambar5.png">
-            <img class="mySlides" src="gambar6.png">
-            <img class="mySlides" src="gambar7.png">
-        </div>
-    </section>
+<div class="parallax" id="home">
+  <div class="header-text">SANZ PROJECTS</div>
+</div>
 
-    <script>
-    // Fungsi untuk membuat guncangan gemoy
-function shakeElement(element) {
-  var intensity = 10; // Intensitas guncangan (px)
-  var duration = 500; // Durasi guncangan (ms)
-  var start = null;
-  
-  function shake(timestamp) {
-    if (!start) start = timestamp;
-    var progress = timestamp - start;
-    var randomX = intensity * Math.sin(progress / duration * Math.PI * 2);
-    element.style.transform = 'translateX(' + randomX + 'px)';
-    
-    if (progress < duration) {
-      window.requestAnimationFrame(shake);
-    } else {
-      element.style.transform = 'translateX(0)';
-    }
-  }
-  
-  window.requestAnimationFrame(shake);
-}
+<div class="content" id="contact">
+  <div class="image-container">
+    <img src="gambar2.png" alt="Content Picture">
+  </div>
+  <div class="text-container">
+    <h2>Ade Ikhsan Nur Rahman</h2>
+    <p>Saya seorang mahasiswa jurusan multimedia yang memiliki niat dalam pembukaan jasa desain logo dan vektor. Saya senang berkreasi dan ingin membantu Anda menciptakan desain yang memukau.</p>
+  </div>
+  <div class="contact">
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</div>
 
-// Memilih elemen yang akan diguncangkan saat di-scroll
-var elementToShake = document.querySelector('.box');
+<div id="gallery" class="content">
+  <h2>Gallery</h2>
+  <div class="gallery-container">
+    <!-- Image items -->
+  </div>
+  <button id="prevBtn" class="gallery-btn">&lt;</button>
+  <button id="nextBtn" class="gallery-btn">&gt;</button>
+</div>
 
-// Menambahkan event listener untuk mengguncangkan saat di-scroll
-window.addEventListener('scroll', function() {
-  shakeElement(elementToShake);
-});
-        var slideIndex = 0;
-        showSlides();
+<div id="content" class="content">
+  <h2>Product</h2>
+  <div class="slider-container">
+    <div class="slider">
+      <!-- Image items -->
+    </div>
+    <!-- Navigation arrows -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+</div>
 
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            slides[slideIndex-1].style.display = "block";  
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-    </script>
+<script src="script.js"></script> <!-- Include external JavaScript file -->
 </body>
 </html>
