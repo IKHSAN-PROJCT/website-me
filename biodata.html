@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 400px; /* Mengurangi lebar kontainer */
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5); /* Transparan */
+    animation: fadeIn 1s ease-in-out; /* Menambahkan animasi fade in */
+}
+
+.container img {
+    width: 200px; /* Mengatur ukuran gambar */
+    height: 200px; /* Mengatur tinggi gambar */
+    border-radius: 50%; /* Mengatur border radius menjadi bulat */
+    display: block; /* Membuat gambar menjadi pusat di dalam kontainer */
+    margin: 0 auto; /* Membuat gambar menjadi pusat di dalam kontainer */
+}
+
+.info {
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 5px 0;
+}
+  </style>
+    <video autoplay muted loop id="bg-video">
+        <source src="ironman.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <img src="gambar1.png" alt="Foto Anda">
+        <div class="info">
+            <h2>Nama: Ade ikhsan nur rahman</h2>
+            <p>Hobi: Menggambar, badminton</p>
+            <p>Alamat: Jl. RE MARTHADINATA Gg kenanga IV</p>
+            <p>Jurusan: Multimedia</p>
+            <p>Lulusan: SMK</p>
+        </div>
+    </div>
+</body>
+</html>
