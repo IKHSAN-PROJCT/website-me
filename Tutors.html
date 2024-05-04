@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Website</title>
+    <style>
+        /* CSS untuk efek blur pada border */
+        .tutorial {
+            border: 20px solid transparent;
+            padding: 20px;
+            background-color: transparent; /* Warna latar belakang */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+            border-radius: 20px; /* Membuat sudut border melengkung */
+        }
+
+        /* CSS untuk gambar tutorial */
+        .tutorial img {
+            max-width: 100%; /* Membuat gambar tutorial responsif */
+            border-radius: 8px; /* Melengkungkan sudut gambar */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk gambar */
+        }
+
+        /* CSS untuk keterangan tutorial */
+        .tutorial p {
+            font-size: 16px; /* Ukuran teks */
+            line-height: 1.6; /* Spasi baris */
+            color: #333; /* Warna teks */
+            display: none; /* Keterangan awalnya disembunyikan */
+        }
+
+        /* CSS untuk video background */
+        .tutorial video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Menempatkan video di belakang konten */
+            opacity: 0.5; /* Mengurangi kecerahan video */
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial">
+      <center>
+        <h2>TUTORIAL HOSTING GITHUB</h2>
+        </center>
+        <img src="tutor1.png" alt="Tutorial Image">
+        <h4>di sini kalian cari di google atau di chrome juga bisa ya dan nama website nya <b><a href="https://github.com/">github.com</a></b></h4>
+                <img src="tutor2.png" alt="Tutorial Image">
+                <h4>Oke sekarang kalian masuk ke halaman website nya , dan disini kalian harus <u>sign up</u> dulu kalau kalian belum punya sama sekali akun github-nya dan jika kalian sudah mempunyai langsung login saja <a href="https://github.com/login">github.login</a> </4>
+        <img src="tutor3.png" alt="Tutorial Image">
+        <h4>Oke tahap selanjutnya kalau kalian sudah berada di halaman dashboard atau home , kalian scroll ke bawah dan buat repository nya</h4>
+        <img src="tutor4.png" alt="Tutorial Image">
+        <h4>Beri nama repository yang kalian buat oke lalu klik <u>creat a new repository</u></h4>
+          <img src="tutor5.png" alt="Tutorial Image">
+          <h4>Disini kalian pilih <u>uploading a an exiting file</u></h4>
+  <img src="tutor6.png" alt="Tutorial Image">
+  <h4>Disini file kalian upload ya klik <u>choose your files</u></h4>
+  <img src="tutor7.png" alt="Tutorial Image">
+  <h4>Dan setelah itu kalian pilih file html yang akan di upload ke guthub bebas tergantung kalian ya , dan tenang aja github bisa upload berbagai file </h4>
+  <img src="tutor8.png" alt="Tutorial Image">
+  <h4>setelah di upload kalian klik yang berwarna hijau ya</h4>
+  <img src="tutor9.png" alt="Tutorial Image">
+  <h4>Kalian pergi ke setting </h4>
+  <img src="tutor10.png" alt="Tutorial Image">
+  <h4>Setalah itu kalian klik <u>pages</u></h4>
+  <img src="tutor11.png" alt="Tutorial Image">
+  <h4>Setelah itu kalian atur bagian <u>branch </u>menjadi <u>main</u> lalu save </h4>
+  <img src="tutor12.png" alt="Tutorial Image">
+  <h4>di bagian ini kalian kembali ke code</h4>
+  <img src="tutor13.png" alt="Tutorial Image">
+  <h4>Kalau sudah centang hijau artinya bisa kebuka oke</h4>
+  <img src="tutor14.png" alt="Tutorial Image">
+  <h4>Nah kalau sudah begini tingal kalian klik aja dan saya saranin ya nama file nya <u>Index.html</u></h4>
+  <img src="tutor15.png" alt="Tutorial Image">
+  <h4>Kalau terjadi kaya begini kalian jangan dulu panik , mungkin itu kesalahan dari nama file nya , dan yang saya upload file nya bernama <u>Checkhost.html</u> harus nya <u>Index.html</u></h4>
+  <img src="tutor16.png" alt="Tutorial Image">
+  <h4>Tapi kalian jangan dulu panik , karna solusi nya dengan cara kalian klik link nya lalu edit dan namain file kalian contoh : /Checkhost.html</h4>
+  <img src="tutor17.png" alt="Tutorial Image">
+  <h4>Dan Sudah selamat mencoba :) , karna file saya berisi codingan check host maka itulah</h4>
+       <!-- Video background -->
+        <video autoplay muted loop>
+            <source src="ironman.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // JavaScript untuk menampilkan dan menyembunyikan keterangan tutorial
+        document.addEventListener("DOMContentLoaded", function() {
+            const tutorial = document.querySelector('.tutorial');
+            const description = document.querySelector('.tutorial p');
+            
+            // Menampilkan keterangan saat gambar dihover
+            tutorial.addEventListener('mouseenter', function() {
+                description.style.display = 'block';
+            });
+            
+            // Menyembunyikan keterangan saat keluar dari gambar
+            tutorial.addEventListener('mouseleave', function() {
+                description.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
