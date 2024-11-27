@@ -306,15 +306,6 @@ button:hover, a:hover {
   
   <div class="content">
     <button class="open-btn" onclick="toggleSidebar()">☰</button>
-        <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
-    <h1>°</h1><h1>°</h1>
     <h1>WELLCOME</h1>
     <p></p>
     <div id="content-display">
@@ -323,93 +314,6 @@ button:hover, a:hover {
   </div>
 
   <script>
-  const gravity = 0.5;
-const bounceFactor = 0.6; // Faktor pantulan
-const elements = document.querySelectorAll('h1, p'); // Pilih elemen <h1> dan <p>
-
-elements.forEach((el) => {
-  el.style.position = 'absolute';
-  el.style.top = `${el.offsetTop}px`;
-  el.style.left = `${el.offsetLeft}px`;
-
-  let velocity = { x: 0, y: 0 };
-  let falling = true;
-
-  // Simulasi gravitasi dan pantulan
-  const fall = () => {
-    if (falling) {
-      const containerHeight = window.innerHeight;
-      const elementBottom = el.offsetTop + el.offsetHeight;
-
-      // Jika elemen mencapai dasar, terapkan pantulan
-      if (elementBottom < containerHeight) {
-        velocity.y += gravity;
-        el.style.top = `${el.offsetTop + velocity.y}px`;
-      } else {
-        if (velocity.y > 0) {
-          velocity.y *= -bounceFactor; // Terapkan pantulan
-        }
-        el.style.top = `${containerHeight - el.offsetHeight}px`; // Pastikan elemen berada di dasar
-
-        // Secara bertahap mengurangi efek pantulan saat elemen berhenti memantul
-        if (Math.abs(velocity.y) < 0.5) {
-          velocity.y = 0; // Hentikan pantulan jika kecepatannya cukup rendah
-          falling = false; // Hentikan gerakan jatuh
-        }
-      }
-    }
-    requestAnimationFrame(fall); // Terus jalankan fungsi fall
-  };
-  fall();
-
-  // Izinkan elemen untuk dipindahkan dengan drag
-  let isDragging = false;
-
-  el.addEventListener('mousedown', () => {
-    isDragging = true;
-    falling = false;
-    el.style.cursor = 'grabbing';
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      el.style.top = `${e.clientY - el.offsetHeight / 2}px`;
-      el.style.left = `${e.clientX - el.offsetWidth / 2}px`;
-    }
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (isDragging) {
-      isDragging = false;
-      falling = true;
-      el.style.cursor = 'grab';
-    }
-  });
-
-  // Responsif terhadap sentuhan di perangkat mobile
-  el.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    falling = false;
-    el.style.cursor = 'grabbing';
-    e.preventDefault();
-  });
-
-  window.addEventListener('touchmove', (e) => {
-    if (isDragging) {
-      const touch = e.touches[0];
-      el.style.top = `${touch.clientY - el.offsetHeight / 2}px`;
-      el.style.left = `${touch.clientX - el.offsetWidth / 2}px`;
-    }
-  });
-
-  window.addEventListener('touchend', () => {
-    if (isDragging) {
-      isDragging = false;
-      falling = true;
-      el.style.cursor = 'grab';
-    }
-  });
-});
     function toggleSidebar() {
       var sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('active');
