@@ -13,13 +13,38 @@
 <body>
   <h1>SMS Terbaru:</h1>
   <div id="sms"></div>
-  <button onclick="bacaSMS()">Baca SMS</button>
+  <button onclick="izinSMS()">Izin Akses SMS</button>
+  <button onclick="bacaSMS()" id="bacaSMS" disabled>Baca SMS</button>
   <div id="error"></div>
 
+  <script src="cordova.js"></script>
   <script>
+    let izinSMSGiven = false;
+
+    document.addEventListener("deviceready", function () {
+      cordova.plugins.sms.init();
+    });
+
+    function izinSMS() {
+      cordova.plugins.sms.requestPermission(
+        function (perm) {
+          if (perm === "granted") {
+            izinSMSGiven = true;
+            document.getElementById("bacaSMS").disabled = false;
+            alert("Izin akses SMS diberikan!");
+          } else {
+            alert("Izin akses SMS ditolak!");
+          }
+        },
+        function (error) {
+          alert("Gagal meminta izin: " + error);
+        }
+      );
+    }
+
     function bacaSMS() {
-      if ("sms" in navigator) {
-        navigator.sms.readSMS(
+      if (izinSMSGiven) {
+        cordova.plugins.sms.readSMS(
           function (messages) {
             var smsTerbaru = messages[0].body;
             document.getElementById("sms").innerHTML = smsTerbaru;
@@ -29,7 +54,7 @@
           }
         );
       } else {
-        document.getElementById("error").innerHTML = "API Web SMS tidak didukung";
+        alert("Izin akses SMS belum diberikan!");
       }
     }
   </script>
